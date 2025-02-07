@@ -1,2 +1,2 @@
-SELECT *
-FROM adw_stg.public.stateprovince
+select *
+from {{ source('adw_sales', 'stateprovince') }}

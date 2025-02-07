@@ -1,2 +1,2 @@
-SELECT *
-FROM adw_stg.public.countryregion
+select *
+from {{ source('adw_sales', 'countryregion') }}

@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: adw_sales
+    database: adw_stg
+    schema: public
+    tables:
+      - name: address
+      - name: countryregion
+      - name: person
+      - name: stateprovince
+      - name: shipmethod
+      - name: customer
+      - name: salesterritory
