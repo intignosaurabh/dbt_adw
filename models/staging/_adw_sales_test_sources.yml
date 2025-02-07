@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: stg_adw_person__address
+    columns:
+      - name: AddressID
+        tests:
+          - unique
+          - not_null
+      - name: StateProvinceID
+        tests:
+          - relationships:
+              field: StateProvinceID
+              to: ref('stg_adw_person__stateprovince')
+  
+  - name: stg_adw_person__stateprovince
+    columns:
+      - name: StateProvinceID
+        tests:
+          - unique
+          - not_null
+      - name: CountryRegionCode
+        tests:
+          - relationships:
+              field: CountryRegionCode
+              to: ref('stg_adw_person__countryregion')
+      - name: IsOnlyStateProvinceFlag
+        tests:
+          - accepted_values:
+              values: ['True', 'False']
