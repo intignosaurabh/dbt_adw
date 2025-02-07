@@ -1,4 +1,4 @@
 select
     *
 from
-    adw_stg.public.customer
+    {{ source('adw_sales', 'customer') }}

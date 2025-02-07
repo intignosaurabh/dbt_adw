@@ -1,4 +1,4 @@
 select 
     *
 from
-    adw_stg.public.address
+    {{ source('adw_sales', 'address') }}
