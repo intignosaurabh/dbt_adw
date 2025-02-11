@@ -12,3 +12,11 @@ sources:
       - name: shipmethod
       - name: customer
       - name: salesterritory
+      - name: salesorderdetail
+      - name: salesorderheader
+      - name: employee
+      - name: store
+      - name: currencyrate
+      - name: product
+      - name: productsubcategory
+      - name: productcategory
