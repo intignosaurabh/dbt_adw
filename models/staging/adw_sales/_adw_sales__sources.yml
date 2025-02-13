@@ -2,10 +2,12 @@ version: 2
 
 sources:
   - name: adw_sales
+    description: This data mart contains tables required to perform sales analysis on AdventureWorks.
     database: adw_stg
     schema: public
     tables:
       - name: address
+        description: Holds the Address
       - name: countryregion
       - name: person
       - name: stateprovince

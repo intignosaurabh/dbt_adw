@@ -1,3 +1,10 @@
+with 
+
+source as (
+
+    select * from {{ source('adw_sales', 'salesorderdetail') }}
+
+),
 select
     salesorderid as sales_order_id,
     salesorderdetailid as sales_order_detail_id,
@@ -10,4 +17,4 @@ select
     rowguid as rowguid,
     modifieddate as modified_date
 from
-    {{ source('adw_sales', 'salesorderdetail') }}
+    source
