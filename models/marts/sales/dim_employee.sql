@@ -1,5 +1,6 @@
 with employee as(
     select
+        row_number() over(order by business_entity_id) as employee_key,
         business_entity_id,
         national_id_number,
         organization_level,

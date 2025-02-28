@@ -16,6 +16,7 @@ from
     {{ ref('stg_adw_person__person') }}
 )
 select
+    row_number() over(order by c.customer_id) as customer_key,
     c.customer_id,
     c.person_id,
     p.person_type,

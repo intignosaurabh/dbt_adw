@@ -38,6 +38,7 @@ category as (
     from {{ ref('stg_adw_production__productcategory') }}
 )
 select
+        row_number() over(order by product_id) as product_key,
         product_id,
         name,
         product_number,
