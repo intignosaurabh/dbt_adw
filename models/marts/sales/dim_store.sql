@@ -15,7 +15,8 @@ with store as(
     from
         {{ ref('stg_adw_person__person') }}
 )
-select 
+select
+        row_number() over( order by st.business_entity_id) as store_key,
         st.business_entity_id,
         st.name as store_name,
         p.sales_person_id,

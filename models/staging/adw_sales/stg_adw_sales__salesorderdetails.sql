@@ -2,9 +2,12 @@ with
 
 source as (
 
-    select * from {{ source('adw_sales', 'salesorderdetail') }}
+    select 
+        * 
+    from 
+        {{ source('adw_sales', 'salesorderdetail') }}
 
-),
+)
 select
     salesorderid as sales_order_id,
     salesorderdetailid as sales_order_detail_id,

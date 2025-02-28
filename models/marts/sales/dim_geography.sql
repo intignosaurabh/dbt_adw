@@ -36,6 +36,7 @@ address as (
         {{ ref('stg_adw_person__address') }} as a
 )
 select
+        row_number() over(order by a.address_id) as geography_key,
         a.address_id,
         a.address_line,
         a.city,
