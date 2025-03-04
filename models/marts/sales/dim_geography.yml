@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: dim_geography
+    columns:
+      - name: geography_key
+        description: Auto incrementing surrogate key.
+        tests:
+          - not_null
+          - unique
+      - name: address_id
+        description: Natural key of the address table in source system
+        tests:
+          - not_null
+          - unique
+      - name: state_province_id
+        description: Natural key of the state province table in source system
+        tests:
+          - not_null
+      - name: territory_id
+        description: Natural key of the territory table in source system
+        tests:
+          - not_null
+      - name: sales_group
+        description: High level categorization of geography
+        tests:
+          - accepted_values:
+              values: ['North America','Europe','Pacific']

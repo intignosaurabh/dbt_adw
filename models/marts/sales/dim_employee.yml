@@ -1,0 +1,29 @@
+version: 2
+
+models:
+  - name: dim_employee
+    columns:
+      - name: employee_key
+        description: Surrogate key of the table.
+        tests:
+          - not_null
+          - unique
+      - name: business_entity_id
+        description: Natural key of the table.
+        tests:
+          - not_null
+          - unique
+      - name: job_title
+        description: Employee designation in adventure works organization.
+        tests:
+          - not_null
+      - name: maritial_status
+        description: Maritual status of the employee
+        tests:
+          - accepted_values:
+              values: ['Single','Married','NA']
+      - name: gender
+        description: Gender of the employee
+        tests:
+          - accepted_values:
+              values: ['Male','Female','NA']
