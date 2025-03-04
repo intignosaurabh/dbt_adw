@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: dim_customer
+    columns:
+      - name: customer_key
+        description: The surrogate key of the customer
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: The natural kay of the customer
+        tests:
+          - not_null
+          - unique
+      - name: person_id
+        description: The foreign key from person table
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('stg_adw_person__person')
+              field: BusinessEntityID
+      - name: person_type
+        description: Columns contains the person types SC or IN
+        tests:
+          - accepted_values:
+              values: ["SC","IN"]
+      - name: first_name
+        description: First name of the customer
+        tests:
+          - not_null
+      - name: last_name
+        description: Last name of the customer
+        tests:
+          - not_null

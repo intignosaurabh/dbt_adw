@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: dim_shipmethod
+    columns:
+      - name: ship_method_key
+        description: Auto increment surrogate key of the table.
+        tests:
+          - not_null
+          - unique
+      - name: ship_method_id
+        description: Primary or business key of the source table.
+        tests:
+          - not_null
+          - unique
+      - name: name
+        description: Name of the ship method
+        tests:
+          - not_null

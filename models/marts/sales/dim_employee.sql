@@ -6,8 +6,16 @@ with employee as(
         organization_level,
         job_title,
         birth_date,
-        maritial_status,
-        gender,
+        case 
+            when maritial_status = 'S' then 'Single'
+            when maritial_status = 'M' then 'Married'
+            else 'NA'
+        end as maritial_status,
+        case 
+            when gender = 'M' then 'Male'
+            when gender = 'F' then 'Female'
+            else 'NA'
+        end as gender,
         hire_date,
         salaried_flag,
         vacation_hours,

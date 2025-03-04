@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: dim_store
+    columns:
+      - name: store_key
+        description: Auto increment surrogate key of the table.
+        tests:
+          - not_null
+          - unique
+      - name: business_entity_id
+        description: Primary key of the person table from source system
+        tests:
+          - not_null
+          - unique
+      - name: sales_person_id
+        tests:
+          - not_null
+          - relationships:
+              field: businessentityid
+              to: ref('stg_adw_person__person')

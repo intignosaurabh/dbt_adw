@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: dim_product
+    tests:
+    - dbt_utils.unique_combination_of_columns:
+        combination_of_columns:
+          - product_id
+          - product_subcategory_id
+          - product_category_id
+    columns:
+      - name: product_key
+        description: Auto increment surrogate key of the table.
+        tests:
+          - not_null
+          - unique
+      - name: name
+        description: Name of the product itself.
+        tests:
+          - not_null
+      - name: product_subcategory
+        description: Name of the product subcategory
+        tests:
+          - not_null
+      - name: category
+        description: Name of the category
+        tests:
+          - not_null
