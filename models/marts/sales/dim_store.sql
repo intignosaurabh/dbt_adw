@@ -17,9 +17,9 @@ with store as(
 )
 select
         row_number() over( order by st.business_entity_id) as store_key,
-        st.business_entity_id,
+        st.business_entity_id::NUMERIC as business_entity_id,
         st.name as store_name,
-        p.sales_person_id,
+        p.sales_person_id::NUMERIC as sales_person_id,
         p.first_name,
         p.last_name
 from
