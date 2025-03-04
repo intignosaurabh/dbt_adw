@@ -37,16 +37,16 @@ address as (
 )
 select
         row_number() over(order by a.address_id) as geography_key,
-        a.address_id,
+        a.address_id::NUMERIC as address_id,
         a.address_line,
         a.city,
         a.postal_code,
-        sp.state_province_id,
+        sp.state_province_id::NUMERIC as state_province_id,
         sp.state_province_code,
-        sp.is_only_state_province_glag,
+        sp.is_only_state_province_glag::boolean as is_only_state_province_glag,
         sp.state_province_name,
         cr.country_region_name,
-        st.territory_id,
+        st.territory_id::NUMERIC as territory_id,
         st.territory_name,
         st.country_region_code,
         st.sales_group

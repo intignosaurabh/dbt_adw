@@ -17,12 +17,13 @@ from
 )
 select
     row_number() over(order by c.customer_id) as customer_key,
-    c.customer_id,
-    c.person_id,
+    c.customer_id::NUMERIC as customer_id,
+    c.person_id::NUMERIC as person_id,
     p.person_type,
     p.title,
     p.first_name,
-    p.last_name
+    p.last_name,
+    current_timestamp() as _record_created_at
 from
     customer as c
 inner join person as p on c.person_id=p.business_entity_id
